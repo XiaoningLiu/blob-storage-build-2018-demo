@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: download-new
+  name: download-new
+spec:
+  replicas: 180
+  template:
+    metadata:
+      labels:
+        app: download-new
+      name: download-new
+    spec:
+      containers:
+      - name: download-new
+        image: mihauss/download-new
+        args:
+          - dineshlimitlessuseast
+          - "b2AUjtLGIqSaoQwiNb12CjrxY8kAYedKaxK75iubXSFin/Ac6aLBp/dPnYG+FfN9k9/kAEDGjTRSNo+eKfK2lw=="
+          - normal-video.mp4
+        resources:
+          requests:
+            cpu: "1.0"
+            memory: 5400Mi
+          limits:
+            cpu: "1.0"
+            memory: 5400Mi
+
