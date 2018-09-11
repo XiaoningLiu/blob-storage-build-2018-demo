@@ -7,17 +7,15 @@
   <meta name="description" content="">
   <meta name="author" content="Microsoft Azure Storage">
 
-  <title>Azure Storage Build Demo 2018</title>
+  <title>Azure Storage Ignite Demo 2018</title>
 
   <!-- Bootstrap core CSS -->
   <link href="style/bootstrap.min.css" rel="stylesheet">
   <link href="style/album.css" rel="stylesheet">
-
 </head>
 
 <body>
   <header>
-
     <!-- Left Navbar menu -->
     <div class="collapse width bg-dark col-md-2 h-100" id="navbarHeader">
       <div class="d-flex justify-content-between">
@@ -28,20 +26,53 @@
         </button>
       </div>
       <div class="h-100">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark h5">
-            <a href="#images" class="text-white" data-toggle="tab" role="tab" onClick="listBlobs('images');">
-              <svg class="svg-icon" stroke="currentColor" viewBox="0 0 20 20">
-                <path d="M18.555,15.354V4.592c0-0.248-0.202-0.451-0.45-0.451H1.888c-0.248,0-0.451,0.203-0.451,0.451v10.808c0,0.559,0.751,0.451,0.451,0.451h16.217h0.005C18.793,15.851,18.478,14.814,18.555,15.354 M2.8,14.949l4.944-6.464l4.144,5.419c0.003,0.003,0.003,0.003,0.003,0.005l0.797,1.04H2.8z M13.822,14.949l-1.006-1.317l1.689-2.218l2.688,3.535H13.822z M17.654,14.064l-2.791-3.666c-0.181-0.237-0.535-0.237-0.716,0l-1.899,2.493l-4.146-5.42c-0.18-0.237-0.536-0.237-0.716,0l-5.047,6.598V5.042h15.316V14.064z M12.474,6.393c-0.869,0-1.577,0.707-1.577,1.576s0.708,1.576,1.577,1.576s1.577-0.707,1.577-1.576S13.343,6.393,12.474,6.393 M12.474,8.645c-0.371,0-0.676-0.304-0.676-0.676s0.305-0.676,0.676-0.676c0.372,0,0.676,0.304,0.676,0.676S12.846,8.645,12.474,8.645"></path>
-              </svg>
-              <strong>Images</strong>
-            </a>
-          </li>
-        </ul>
-        <footer class="text-white" style="position:fixed; bottom: 0;">Azure Sample Media Gallery</footer>
-      </div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item bg-dark h5">
+						<a class="text-white" role="tab" onclick="listBlobs('images');" href="#images" data-toggle="tab">
+							<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" stroke="currentColor" viewBox="0 0 20 20">
+								<path d="M 18.555 15.354 V 4.592 c 0 -0.248 -0.202 -0.451 -0.45 -0.451 H 1.888 c -0.248 0 -0.451 0.203 -0.451 0.451 v 10.808 c 0 0.559 0.751 0.451 0.451 0.451 h 16.217 h 0.005 C 18.793 15.851 18.478 14.814 18.555 15.354 M 2.8 14.949 l 4.944 -6.464 l 4.144 5.419 c 0.003 0.003 0.003 0.003 0.003 0.005 l 0.797 1.04 H 2.8 Z M 13.822 14.949 l -1.006 -1.317 l 1.689 -2.218 l 2.688 3.535 H 13.822 Z M 17.654 14.064 l -2.791 -3.666 c -0.181 -0.237 -0.535 -0.237 -0.716 0 l -1.899 2.493 l -4.146 -5.42 c -0.18 -0.237 -0.536 -0.237 -0.716 0 l -5.047 6.598 V 5.042 h 15.316 V 14.064 Z M 12.474 6.393 c -0.869 0 -1.577 0.707 -1.577 1.576 s 0.708 1.576 1.577 1.576 s 1.577 -0.707 1.577 -1.576 S 13.343 6.393 12.474 6.393 M 12.474 8.645 c -0.371 0 -0.676 -0.304 -0.676 -0.676 s 0.305 -0.676 0.676 -0.676 c 0.372 0 0.676 0.304 0.676 0.676 S 12.846 8.645 12.474 8.645" />
+							</svg>
+							<strong>Images</strong>
+						</a>
+					</li>
+					<li class="list-group-item bg-dark h5">
+						<a class="text-white" role="tab" onclick="listBlobs('videos');" href="#videos" data-toggle="tab">
+							<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" stroke="currentColor" viewBox="0 0 20 20">
+								<path d="M 18.175 4.142 H 1.951 C 1.703 4.142 1.5 4.344 1.5 4.592 v 10.816 c 0 0.247 0.203 0.45 0.451 0.45 h 16.224 c 0.247 0 0.45 -0.203 0.45 -0.45 V 4.592 C 18.625 4.344 18.422 4.142 18.175 4.142 M 4.655 14.957 H 2.401 v -1.803 h 2.253 V 14.957 Z M 4.655 12.254 H 2.401 v -1.803 h 2.253 V 12.254 Z M 4.655 9.549 H 2.401 V 7.747 h 2.253 V 9.549 Z M 4.655 6.846 H 2.401 V 5.043 h 2.253 V 6.846 Z M 14.569 14.957 H 5.556 V 5.043 h 9.013 V 14.957 Z M 17.724 14.957 h -2.253 v -1.803 h 2.253 V 14.957 Z M 17.724 12.254 h -2.253 v -1.803 h 2.253 V 12.254 Z M 17.724 9.549 h -2.253 V 7.747 h 2.253 V 9.549 Z M 17.724 6.846 h -2.253 V 5.043 h 2.253 V 6.846 Z" />
+							</svg>
+							<strong>Videos</strong>
+						</a>
+					</li>
+					<li class="list-group-item bg-dark h5">
+						<a class="text-white" role="tab" href="#search" data-toggle="tab">
+							<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" stroke="currentColor" viewBox="0 0 20 20">
+								<path d="M 18.125 15.804 l -4.038 -4.037 c 0.675 -1.079 1.012 -2.308 1.01 -3.534 C 15.089 4.62 12.199 1.75 8.584 1.75 C 4.815 1.75 1.982 4.726 2 8.286 c 0.021 3.577 2.908 6.549 6.578 6.549 c 1.241 0 2.417 -0.347 3.44 -0.985 l 4.032 4.026 c 0.167 0.166 0.43 0.166 0.596 0 l 1.479 -1.478 C 18.292 16.234 18.292 15.968 18.125 15.804 M 8.578 13.99 c -3.198 0 -5.716 -2.593 -5.733 -5.71 c -0.017 -3.084 2.438 -5.686 5.74 -5.686 c 3.197 0 5.625 2.493 5.64 5.624 C 14.242 11.548 11.621 13.99 8.578 13.99 M 16.349 16.981 l -3.637 -3.635 c 0.131 -0.11 0.721 -0.695 0.876 -0.884 l 3.642 3.639 L 16.349 16.981 Z" />
+							</svg>
+							<strong>Search</strong>
+						</a>
+					</li>
+					<li class="list-group-item bg-dark h5">
+						<a class="text-white" id="login" style="display: none;" href="#login">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 22 22" width="22" height="22">
+								<path d="M 12 2 C 6.48 2 2 6.48 2 12 s 4.48 10 10 10 s 10 -4.48 10 -10 S 17.52 2 12 2 Z m 0 3 c 1.66 0 3 1.34 3 3 s -1.34 3 -3 3 s -3 -1.34 -3 -3 s 1.34 -3 3 -3 Z m 0 14.2 c -2.5 0 -4.71 -1.28 -6 -3.22 c 0.03 -1.99 4 -3.08 6 -3.08 c 1.99 0 5.97 1.09 6 3.08 c -1.29 1.94 -3.5 3.22 -6 3.22 Z" />
+								<path fill="none" d="M 0 0 h 24 v 24 H 0 Z" />
+							</svg>
+							<strong> Login</strong>		
+						</a>
+					</li>
+					<li class="list-group-item bg-dark h5">
+						<a class="text-white" id="logout" href="#logout">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 22 22" width="22" height="22">
+								<path fill="none" d="M 0 0 h 24 v 24 H 0 Z" />
+								<path d="M 10.09 15.59 L 11.5 17 l 5 -5 l -5 -5 l -1.41 1.41 L 12.67 11 H 3 v 2 h 9.67 l -2.58 2.59 Z M 19 3 H 5 c -1.11 0 -2 0.9 -2 2 v 4 h 2 V 5 h 14 v 14 H 5 v -4 H 3 v 4 c 0 1.1 0.89 2 2 2 h 14 c 1.1 0 2 -0.9 2 -2 V 5 c 0 -1.1 -0.9 -2 -2 -2 Z" />
+							</svg>
+							<strong> Logout</strong>		
+						</a>
+					</li>
+				</ul>
+				<footer class="text-white" style="position:fixed; bottom: 0;">Azure Sample Media Gallery</footer>
+			</div>
     </div>
-
     <!-- Top Navbar menu-->
     <div class="navbar navbar-dark bg-dark box-shadow container-fluid">
       <div class="container d-flex justify-content-between">
@@ -49,6 +80,10 @@
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <label class='btn btn-default btn-primary'>
+          <span id='uploadResult'>Upload a new file</span>
+          <input id='uploadFile' type='file' hidden>
+        </label>
       </div>
     </div>
   </header>
@@ -57,71 +92,39 @@
     <div class="album py-5 bg-light">
       <div class="container tab-content">
         <!-- Main Tabbed Content-->
+        <!-- Images-->
         <div id="images" class="row tab-pane active" role="tabpanel">
-
-          <!--Hardcoded Images-->
-            <div id="images" class="row tab-pane active" role="tabpanel">
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                  <img class="card-img-top placeholder" alt="By Brooke Lark on Unsplash" src="images/brooke-lark-254998-unsplash.jpg" onerror="this.src='style/no-image.jpg'">
-                  <div class="card-body">
-                    <p class="card-text">By Brooke Lark on Unsplash</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewMedia" data-src="images/brooke-lark-254998-unsplash.jpg">View</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                  <img class="card-img-top placeholder" alt="By Emre Gencer on Unsplash" src="images/emre-gencer-228223-unsplash.jpg" onerror="this.src='style/no-image.jpg'">
-                  <div class="card-body">
-                    <p class="card-text">By Emre Gencer on Unsplash</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewMedia" data-src="images/emre-gencer-228223-unsplash.jpg">View</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow"><img class="card-img-top placeholder" alt="By Patrick Hendry on Unsplash" src="images/patrick-hendry-547014-unsplash.jpg" onerror="this.src='style/no-image.jpg'">
-                  <div class="card-body">
-                    <p class="card-text">By Patrick Hendry on Unsplash</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewMedia" data-src="images/patrick-hendry-547014-unsplash.jpg">View</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
         </div>
 
-        <!-- Modal for Media -->
-        <div class="modal fade" id="viewMedia" tabindex="-1" role="dialog" aria-labelledby="View Media" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" id="media">
-                <img class="img-responsive" src="" width="100%" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
+        <div id="videos" class="row tab-pane" role="tabpanel">
+        </div>
+          
+        <div id="search" class="row tab-pane" role="tabpanel">
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="media">
+              <img class="img-responsive" src="" width="100%" />
+              <video width="100%" controls class="video-responsive">
+              Your browser does not support the video tag.
+              </video> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
   </main>
 
@@ -133,6 +136,7 @@
       <p>Azure Storage!</p>
     </div>
   </footer>
+  <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js"></script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -140,7 +144,8 @@
   <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/holder.min.js"></script>
   <!--Application JS-->
-  <script src="scripts/app.js" async></script>
+  <script src="scripts/azure-storage.blob.min.js"></script>
+  <script type="text/javascript"></script>
+  <script src="scripts/app.js"></script>
 </body>
-
 </html>
