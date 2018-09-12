@@ -1,6 +1,6 @@
 var blobUri = 'https://2018ignitedemo.blob.core.windows.net/'
-  var container = '$web'
-  var blobService = null
+var container = 'media'
+var blobService = null
 
   window.config = {
     instance: 'https://login.microsoftonline.com/',
